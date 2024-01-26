@@ -46,6 +46,9 @@ const { createApp } = Vue
             this.currentImage = 0
           }
     
+        },
+        setImage(index){
+          this.currentImage = index
         }
     }
 }).mount('#app')

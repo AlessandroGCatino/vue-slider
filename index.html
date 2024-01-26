@@ -36,6 +36,7 @@
                         :src="images.image" 
                         :alt="images.title"
                         :class="(currentImage === index)? 'active' : 'background' "
+                        @click="setImage(index)"
                         >
                     </div>
                     <!-- <div class="thumb active">

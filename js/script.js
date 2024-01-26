@@ -4,7 +4,8 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
-        currentImage : 2,        
+        autoScroll: null,
+        currentImage : 0,        
         slides : [
             {
                 image: './img/01.webp',
@@ -30,6 +31,9 @@ const { createApp } = Vue
             ]
         }
     },
+    created(){
+        this.activeInterval()
+    },
     methods: {
         prevImage(){
           this.currentImage--
@@ -49,6 +53,14 @@ const { createApp } = Vue
         },
         setImage(index){
           this.currentImage = index
-        }
+        },
+        activeInterval(){
+            this.autoScroll = setInterval( () =>{
+              this.nextImage()
+            }, 2000 )
+        },
+        stopInterval(){
+            clearInterval(this.autoScroll)
+        },
     }
 }).mount('#app')

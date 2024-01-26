@@ -14,7 +14,7 @@
     <div id="app">
 
         <div class="container">
-            <div class="slider-wrapper" tabindex="0">
+            <div class="slider-wrapper" tabindex="0" @mouseover="stopInterval" @mouseleave="activeInterval">
 
                 <div class="item">
                     <img :src="slides[currentImage].image" :alt="slides[currentImage].title" />
@@ -37,6 +37,7 @@
                         :alt="images.title"
                         :class="(currentImage === index)? 'active' : 'background' "
                         @click="setImage(index)"
+                        
                         >
                     </div>
                     <!-- <div class="thumb active">
